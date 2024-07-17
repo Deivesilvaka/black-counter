@@ -27,6 +27,7 @@ function setLastTime(time) {
 
 function anotherDate() {
   let lastTimePrompt = prompt("Cole aqui seu ultimo texto")
+    .replace("*", "")
     .replace("Black: ", "")
     .replace(" - ", "T");
 
