@@ -26,10 +26,11 @@ function setLastTime(time) {
 }
 
 function anotherDate() {
-  let lastTimePrompt =
-    prompt("Cole aqui seu ultimo texto")
-      .replace("Black: ", "")
-      .replace(" - ", "T") + ":00";
+  let lastTimePrompt = prompt("Cole aqui seu ultimo texto")
+    .replace("Black: ", "")
+    .replace(" - ", "T");
+
+  lastTimePrompt += lastTimePrompt.length === 25 ? ":00" : "";
 
   lastTimePrompt = lastTimePrompt.split("T");
 
