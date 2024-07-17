@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Black</title>
+    <style>
+      button {
+        width: 120px;
+        height: 60px;
+      }
+
+      .dif {
+        height: 60px;
+        width: 252px;
+      }
+
+      body {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>BLACK 👍</h1>
+
+      <button onclick="black()">Black 👍</button> -
+      <button onclick="calculate()">Calculate 👍</button><br /><br />
+      <button class="dif" onclick="anotherDate()">Data diferente</button>
+
+      <p class="output"></p>
+    </center>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script>
+      dayjs().format();
+    </script>
+    <script src="src/scripts/index.js"></script>
+  </body>
+</html>
