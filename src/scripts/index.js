@@ -4,9 +4,11 @@ function calculate() {
 
   const hoursBetween = today.diff(lastTime, "hours");
 
-  document.querySelector(
-    ".output"
-  ).innerHTML = `Este usuário está a mais de ${hoursBetween} horas sem ouvir *Black - Pearl Jam*`;
+  const text = `Este usuário está a mais de ${hoursBetween} horas sem ouvir *Black do Pearl Jam*`;
+
+  document.querySelector(".output").innerHTML = text;
+
+  return text;
 }
 
 function getLastTime() {
@@ -27,7 +29,7 @@ function setLastTime(time) {
 
 function anotherDate() {
   let lastTimePrompt = prompt("Cole aqui seu ultimo texto")
-    .replace("*", "")
+    .replaceAll("*", "")
     .replace("Black: ", "")
     .replace(" - ", "T");
 
