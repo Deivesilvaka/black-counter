@@ -4,7 +4,9 @@ function calculate() {
 
   const hoursBetween = today.diff(lastTime, "hours");
 
-  const text = `Este usuário está a mais de ${hoursBetween} horas sem ouvir *Black do Pearl Jam*`;
+  const hardCoreMode = isHardCore() ? "*Hardcore Mode: *" : "";
+
+  const text = `${hardCoreMode} Este usuário está a mais de ${hoursBetween} horas sem ouvir *Black do Pearl Jam*`;
 
   return output(text);
 }
