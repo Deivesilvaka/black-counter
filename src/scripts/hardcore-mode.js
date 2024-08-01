@@ -41,3 +41,17 @@ function today() {
 
   return { day: days[today.getDay()] };
 }
+
+function hardcoreButton() {
+  if (isHardCore()) {
+    document.querySelector(".hcBtn").innerHTML = "Hardcore Mode: Ativado";
+    return;
+  }
+
+  document.querySelector(".hcBtn").innerHTML = "Hardcore Mode: Desativado";
+}
+
+function switchHardcodeMode() {
+  window.localStorage.setItem("hardcore", `${!isHardCore()}`);
+  setup();
+}

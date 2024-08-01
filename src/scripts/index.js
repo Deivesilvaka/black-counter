@@ -68,6 +68,8 @@ async function black() {
 }
 
 function setup() {
+  hardcoreButton();
+
   const lastTime = window.localStorage.getItem("black");
 
   if (!lastTime) {
