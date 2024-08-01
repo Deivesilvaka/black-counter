@@ -61,6 +61,11 @@ function anotherDate() {
 }
 
 async function black() {
+  if (isSafe()) {
+    alert("Hoje é feriado, você não pode marcar zerar o timer");
+    return;
+  }
+
   const lastTime = dayjs(setLastTime())
     .format("DD/MM/YYYY hh:mm:ss")
     .split(" ");

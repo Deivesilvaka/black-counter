@@ -7,6 +7,8 @@ function setEvents() {
     verifyBirthDate();
     hardCoreMode();
   }
+
+  isHollyday();
 }
 
 function isHardCore() {
@@ -20,6 +22,32 @@ function isHardCore() {
 function hardCoreMode() {
   thursday();
   birthdate();
+}
+
+function isHollyday() {
+  if (isSafe()) {
+    outputEvent("Feriado: Você pode ouvir Black sem medo");
+  }
+}
+
+function isSafe() {
+  const hollydays = [
+    "01/01", // Confraternização Universal
+    "12/02", // Carnaval
+    "13/02", // Carnaval
+    "29/03", // Sexta-feira Santa
+    "21/04", // Tiradentes
+    "01/05", // Dia do Trabalho
+    "30/05", // Corpus Christi
+    "07/09", // Independência do Brasil
+    "12/10", // Nossa Senhora Aparecida
+    "02/11", // Finados
+    "15/11", // Proclamação da República
+    "25/12", // Natal
+  ];
+
+  const { date } = today();
+  return hollydays.includes(date);
 }
 
 function birthdate() {
