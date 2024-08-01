@@ -15,6 +15,12 @@ function output(text) {
   return text;
 }
 
+function outputEvent(text) {
+  document.querySelector(".events").innerHTML = text;
+
+  return text;
+}
+
 function getLastTime() {
   let lastTime = window.localStorage.getItem("black");
 
@@ -70,6 +76,8 @@ function setup() {
     output(text);
     return;
   }
+
+  setEvents();
 
   calculate();
 }
