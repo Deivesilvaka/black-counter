@@ -110,7 +110,17 @@ function hardcoreButton() {
 }
 
 function switchHardcodeMode() {
-  window.localStorage.setItem("hardcore", `${!isHardCore()}`);
+  if (!isHardCore()) {
+    const isConfirmed = confirm(
+      "Tem certeza? Ao alterar, você não poderá voltar ao modo normal."
+    );
+    if (isConfirmed) {
+      window.localStorage.setItem("hardcore", `${!isHardCore()}`);
+    }
+  } else {
+    alert("Não é possível voltar ao modo normal");
+  }
+
   setup();
 }
 
