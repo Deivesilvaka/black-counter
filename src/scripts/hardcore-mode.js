@@ -4,6 +4,7 @@ function setEvents() {
   isValentinesDay();
 
   if (isHardCore()) {
+    verifyBirthDate();
     hardCoreMode();
   }
 }
@@ -18,6 +19,16 @@ function isHardCore() {
 
 function hardCoreMode() {
   thursday();
+  birthdate();
+}
+
+function birthdate() {
+  const birthdate = getBirthdate();
+  const { date } = today();
+
+  if (date === birthdate) {
+    outputEvent(`Hardcode Mode: Aniversário`);
+  }
 }
 
 function thursday() {
@@ -73,4 +84,29 @@ function hardcoreButton() {
 function switchHardcodeMode() {
   window.localStorage.setItem("hardcore", `${!isHardCore()}`);
   setup();
+}
+
+function verifyBirthDate() {
+  if (window.localStorage.getItem("birthdate")) {
+    return;
+  }
+
+  const birthdate = prompt(
+    "Digite sua data de aniversário para configurar o hardcore mode (ex: 21/08/2000)"
+  );
+
+  if (!birthdate || birthdate.length < 10) {
+    alert("Data inválida");
+    verifyBirthDate();
+  }
+
+  const splitedBirthdate = birthdate.split("/");
+  const formatedBirthDate = `${splitedBirthdate[0]}/${splitedBirthdate[1]}`;
+
+  window.localStorage.setItem("birthdate", formatedBirthDate);
+  return;
+}
+
+function getBirthdate() {
+  return window.localStorage.getItem("birthdate");
 }
