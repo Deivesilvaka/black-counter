@@ -1,6 +1,8 @@
 function setEvents() {
   outputEvent(`Dia Normal`);
 
+  isValentinesDay();
+
   if (isHardCore()) {
     hardCoreMode();
   }
@@ -26,6 +28,14 @@ function thursday() {
   }
 }
 
+function isValentinesDay() {
+  const { date } = today();
+
+  if (date === "12/06") {
+    outputEvent(`Hardcode Mode: Dia dos Namorados`);
+  }
+}
+
 function today() {
   const today = new Date();
 
@@ -39,7 +49,16 @@ function today() {
     "Sábado",
   ];
 
-  return { day: days[today.getDay()] };
+  const date = `${today.getDate().toString().padStart(2, "0")}/${(
+    today.getMonth() + 1
+  )
+    .toString()
+    .padStart(2, "0")}`;
+
+  return {
+    day: days[today.getDay()],
+    date,
+  };
 }
 
 function hardcoreButton() {
