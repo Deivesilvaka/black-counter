@@ -43,6 +43,11 @@ function anotherDate() {
     .replace("Black: ", "")
     .replace(" - ", "T");
 
+  if (lastTimePrompt.length < 25) {
+    alert("Adicione seu ultimo registo de quando ouviu Black");
+    return;
+  }
+
   lastTimePrompt += lastTimePrompt.length === 25 ? ":00" : "";
 
   lastTimePrompt = lastTimePrompt.split("T");
