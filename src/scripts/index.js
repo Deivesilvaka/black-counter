@@ -6,6 +6,10 @@ function calculate() {
 
   const text = `Este usuário está a mais de ${hoursBetween} horas sem ouvir *Black do Pearl Jam*`;
 
+  return output(text);
+}
+
+function output(text) {
   document.querySelector(".output").innerHTML = text;
 
   return text;
@@ -45,14 +49,29 @@ function anotherDate() {
   calculate();
 }
 
-calculate();
-
-function black() {
+async function black() {
   const lastTime = dayjs(setLastTime())
     .format("DD/MM/YYYY hh:mm:ss")
     .split(" ");
 
-  document.querySelector(
-    ".output"
-  ).innerHTML = `*Black:* ${lastTime[0]} - ${lastTime[1]}`;
+  const text = `*Black:* ${lastTime[0]} - ${lastTime[1]}`;
+
+  await copyToClipboard(text);
+
+  return output(text);
 }
+
+function setup() {
+  const lastTime = window.localStorage.getItem("black");
+
+  if (!lastTime) {
+    const text =
+      "Escute Black do Pearl Jam e depois clique no botão 'Black 👍' para iniciar";
+    output(text);
+    return;
+  }
+
+  calculate();
+}
+
+setup();

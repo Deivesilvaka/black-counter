@@ -1,7 +1,5 @@
-async function copyToClipboard() {
-  const output = calculate();
-
-  await navigator.clipboard.writeText(output);
+async function copyToClipboard(text) {
+  await navigator.clipboard.writeText(text);
 
   alert("Texto copiado para a área de transferência");
 }
